@@ -1,0 +1,31 @@
+.bg{
+    background:linear-gradient(rgb(204, 204, 204),rgb(153, 152, 152),#5c5b5c,rgb(14, 14, 14));
+    height:100vh;
+    transition:0.9s;
+}
+.download{
+    background-color:rgb(15, 207, 25);
+    border-radius:10px;
+    font-size:20px;
+    border:2px solid rgb(15, 90, 25);
+    transition:0.5s;
+}
+.download:hover{
+    background-color:rgb(15, 90, 25);
+    border-radius:10px;
+    font-size:20px;
+    border:2px solid rgb(15, 60, 25);
+    transition:0.5s;
+}
+.text1{
+    font-size:50px;
+    background:linear-gradient(rgb(8, 204, 204),rgb(20, 152, 152),#5c5b5c,rgb(40,152,22));
+    border-radius:10px;
+    transition:0.9s;
+}
+.text1:hover{
+    font-size:50px;
+    background:linear-gradient(rgb(50, 204, 204),rgb(100, 152, 152),#5c5b5c,rgb(40,152,170));
+    border-radius:10px;
+    transition:0.9s;
+}
