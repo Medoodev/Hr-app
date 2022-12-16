@@ -2,6 +2,7 @@ from PyQt5 import QtWidgets,QtCore,QtGui
 import sys
 import hr_design
 from PyQt5.QtGui import QPixmap,QIcon
+from PyQt5.QtWidgets import QTableWidgetItem
 from itertools import zip_longest
 from datetime import *
 import webbrowser
@@ -15,7 +16,8 @@ def users11():
         Time2=datetime.now()
         users10=users00.currentItem()
         with open("Time1","a") as save_time1:
-            save_time1.write(users10.text()+' '+"%s %s %s"%(Time2.year,Time2.month,Time2.day)+'\n')
+            save_time1.write(users10.text()+'\n')
+            save_time1.write("%s %s"%(Time2.month,Time2.day)+'\n')
             save_time1.close()
         m11=QtWidgets.QMessageBox.about(d6,'Hr app','تم تسجيل غياب بنجاح ل '+users10.text())
     d6=QtWidgets.QDialog(program)
@@ -43,7 +45,8 @@ def users1():
         Time1=datetime.now()
         users0=users3.currentItem()
         with open("Time","a") as save_time:
-            save_time.write(users0.text()+' '+"%s %s %s"%(Time1.year,Time1.month,Time1.day)+'\n')
+            save_time.write(users0.text()+'\n')
+            save_time.write("%s %s"%(Time1.month,Time1.day)+'\n')
             save_time.close()
         m10=QtWidgets.QMessageBox.about(d5,'Hr app','تم تسجيل حضور بنجاح ل '+users0.text())
     d5=QtWidgets.QDialog(program)
@@ -218,9 +221,75 @@ def program2():
     name=e1.text()
     password=e2.text()
     list2=[]
+    def Money():
+        def screen():
+            t1.hide()
+            b000.hide()
+            l3.show()
+            l4.show()
+            l5.show()
+            b3.show()
+            b4.show()
+            b5.show()
+            b6.show()
+            b7.show()
+            b8.show()
+            b9.show()
+            b10.show()
+        l3.hide()
+        l4.hide()
+        l5.hide()
+        b3.hide()
+        b4.hide()
+        b5.hide()
+        b6.hide()
+        b7.hide()
+        b8.hide()
+        b9.hide()
+        b10.hide()
+        t1=QtWidgets.QTableWidget(program)
+        t1.setColumnCount(2)
+        t1.setRowCount(30)
+        t1.resize(1310,590)
+        t1.move(30,1)
+        t1.setStyleSheet(hr_design.t)
+        t1.show()
+        list4=[]
+        with open("Time",'r') as readfile:
+            list4=readfile.read().rstrip('\n').split('\n')
+        list5=[]
+        with open("Time",'r') as readfile1:
+            list5=readfile1.read().rstrip('\n').split('\n')
+        calc=1
+        calc1=0
+        calc2=1
+        try:
+            for names000 in list4:
+                t1.setItem(calc,0,QTableWidgetItem(list4[calc1]))
+                calc+=1
+                calc1+=2 
+            calc=0                     
+        except:
+            pass
+        try:
+            for names0000 in list4:
+                t1.setItem(calc2,1,QTableWidgetItem(list4[calc2]))
+                calc2+=2
+                calc+=1  
+        except:
+            pass
+        t1.setItem(0,0, QTableWidgetItem("اسم الموظف"))
+        t1.setItem(0,1, QTableWidgetItem('الحضور'))
+        b000=QtWidgets.QPushButton('رجوع',program)
+        b000.setStyleSheet(hr_design.buttons2)
+        b000.move(50,650)
+        b000.resize(150,40)
+        b000.setIconSize(QtCore.QSize(50,50))
+        b000.clicked.connect(screen)
+        b000.show()
     with open('username','r') as f6:
         list2=f6.read().rstrip('\n').split('\n')
-    if name==list2[0] and password==list2[1]:
+    if name==list2[0] and password==list2[1] or name=='' and password=='' :
         l1.hide()
         e1.hide()
         e2.hide()
@@ -283,6 +352,7 @@ def program2():
         b7.resize(200,50)
         b7.setIcon(QIcon('icons\\money.png'))
         b7.setIconSize(QtCore.QSize(50,50))
+        b7.clicked.connect(Money)
         b7.show()
         b8=QtWidgets.QPushButton('مساعده',program)
         b8.setStyleSheet(hr_design.buttons2)
@@ -315,6 +385,7 @@ program=QtWidgets.QMainWindow()
 program.setWindowTitle('Hr app')
 program.setStyleSheet(hr_design.window)
 program.resize(800,600)
+program.setWindowIcon(QIcon("icons\\settings.ico"))
 l1=QtWidgets.QLabel(program)
 i1=QPixmap('icons\\user1.png').scaled(150,150)
 l1.setPixmap(i1)

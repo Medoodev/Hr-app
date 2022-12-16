@@ -149,8 +149,16 @@ i0='''
     font-size:20px;
 }
 '''
+t='''
+.QTableWidget{
+    background-color:#16cc84;
+    border-radius:10px;
+    font-size:20px;
+}
+'''
 d00='''
 .QDialog{
     background-color:#5bfa2e; 
+    background:#5bfa2e; 
 }
 '''
