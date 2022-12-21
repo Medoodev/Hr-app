@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import QTableWidgetItem
 from itertools import zip_longest
 from datetime import *
 import webbrowser
-
+from itertools import zip_longest
 
 
 
@@ -17,8 +17,10 @@ def users11():
         users10=users00.currentItem()
         with open("Time1","a") as save_time1:
             save_time1.write(users10.text()+'\n')
-            save_time1.write("%s %s"%(Time2.month,Time2.day)+'\n')
             save_time1.close()
+        with open("Time3","a") as save_time11:
+            save_time11.write("%s %s"%(Time2.month,Time2.day)+'\n')
+            save_time11.close()
         m11=QtWidgets.QMessageBox.about(d6,'Hr app','تم تسجيل غياب بنجاح ل '+users10.text())
     d6=QtWidgets.QDialog(program)
     d6.setFixedHeight(600)
@@ -46,8 +48,10 @@ def users1():
         users0=users3.currentItem()
         with open("Time","a") as save_time:
             save_time.write(users0.text()+'\n')
-            save_time.write("%s %s"%(Time1.month,Time1.day)+'\n')
             save_time.close()
+        with open("Time2","a") as save_time111:
+            save_time111.write("%s %s"%(Time1.month,Time1.day)+'\n')
+            save_time111.close()
         m10=QtWidgets.QMessageBox.about(d5,'Hr app','تم تسجيل حضور بنجاح ل '+users0.text())
     d5=QtWidgets.QDialog(program)
     d5.setFixedHeight(600)
@@ -258,26 +262,32 @@ def program2():
         with open("Time",'r') as readfile:
             list4=readfile.read().rstrip('\n').split('\n')
         list5=[]
-        with open("Time",'r') as readfile1:
+        with open("Time1",'r') as readfile1:
             list5=readfile1.read().rstrip('\n').split('\n')
-        calc=1
-        calc1=0
-        calc2=1
-        try:
-            for names000 in list4:
-                t1.setItem(calc,0,QTableWidgetItem(list4[calc1]))
-                calc+=1
-                calc1+=2 
-            calc=0                     
-        except:
-            pass
-        try:
-            for names0000 in list4:
-                t1.setItem(calc2,1,QTableWidgetItem(list4[calc2]))
-                calc2+=2
-                calc+=1  
-        except:
-            pass
+        list6=[]
+        with open("Time2",'r') as readfile2:
+            list6=readfile2.read().rstrip('\n').split('\n')
+        list7=[]
+        with open("Time3",'r') as readfile3:
+            list7=readfile3.read().rstrip('\n').split('\n')
+        n0=0 
+        names_1=zip_longest(list4,list6)             
+        time_1=zip_longest(list5,list7)    
+        for names00 in list4:
+            t1.setItem(n0,0,QTableWidgetItem(names00))
+            n0+=1
+        n0=0
+        for names000 in list5:
+            t1.setItem(n0,0,QTableWidgetItem(names000))
+            n0+=1
+        n0=0
+        for names0000 in list6:
+            t1.setItem(n0,1,QTableWidgetItem(names0000))
+            n0+=1
+        n0=0
+        for names00000 in list7:
+            t1.setItem(n0,1,QTableWidgetItem(names00000))
+            n0+=0
         t1.setItem(0,0, QTableWidgetItem("اسم الموظف"))
         t1.setItem(0,1, QTableWidgetItem('الحضور'))
         b000=QtWidgets.QPushButton('رجوع',program)
