@@ -7,7 +7,7 @@ from itertools import zip_longest
 from datetime import *
 import webbrowser
 from itertools import zip_longest
-
+from Loding_window import Ui_mainWindow
 
 
 
@@ -15,12 +15,12 @@ def users11():
     def users5():
         Time2=datetime.now()
         users10=users00.currentItem()
-        with open("Time1","a") as save_time1:
+        with open("Time","a") as save_time1:
             save_time1.write(users10.text()+'\n')
             save_time1.close()
-        with open("Time3","a") as save_time11:
-            save_time11.write("%s %s"%(Time2.month,Time2.day)+'\n')
-            save_time11.close()
+        with open("Time1","a") as save_time10:
+            save_time10.write("%s\%s \n"%(Time2.month,Time2.day))
+            save_time10.close()
         m11=QtWidgets.QMessageBox.about(d6,'Hr app','تم تسجيل غياب بنجاح ل '+users10.text())
     d6=QtWidgets.QDialog(program)
     d6.setFixedHeight(600)
@@ -49,9 +49,9 @@ def users1():
         with open("Time","a") as save_time:
             save_time.write(users0.text()+'\n')
             save_time.close()
-        with open("Time2","a") as save_time111:
-            save_time111.write("%s %s"%(Time1.month,Time1.day)+'\n')
-            save_time111.close()
+        with open("Time1","a") as save_time00:
+            save_time00.write("%s\%s\n"%(Time1.month,Time1.day))
+            save_time00.close()
         m10=QtWidgets.QMessageBox.about(d5,'Hr app','تم تسجيل حضور بنجاح ل '+users0.text())
     d5=QtWidgets.QDialog(program)
     d5.setFixedHeight(600)
@@ -252,44 +252,208 @@ def program2():
         b9.hide()
         b10.hide()
         t1=QtWidgets.QTableWidget(program)
-        t1.setColumnCount(2)
-        t1.setRowCount(30)
+        t1.setColumnCount(31)
+        t1.setRowCount(1000000)
         t1.resize(1310,590)
         t1.move(30,1)
         t1.setStyleSheet(hr_design.t)
         t1.show()
+        time7=datetime.now()
+        time8="%s\%s"%(time7.month,1)
+        time9="%s\%s"%(time7.month,2)
+        time10="%s\%s"%(time7.month,3)
+        time11="%s\%s"%(time7.month,4)
+        time12="%s\%s"%(time7.month,5)
+        time13="%s\%s"%(time7.month,6)
+        time14="%s\%s"%(time7.month,7)
+        time15="%s\%s"%(time7.month,8)
+        time16="%s\%s"%(time7.month,9)
+        time17="%s\%s"%(time7.month,10)
+        time18="%s\%s"%(time7.month,11)
+        time19="%s\%s"%(time7.month,12)
+        time20="%s\%s"%(time7.month,13)
+        time21="%s\%s"%(time7.month,14)
+        time22="%s\%s"%(time7.month,15)
+        time23="%s\%s"%(time7.month,16)
+        time24="%s\%s"%(time7.month,17)
+        time25="%s\%s"%(time7.month,18)
+        time26="%s\%s"%(time7.month,19)
+        time27="%s\%s"%(time7.month,20)
+        time28="%s\%s"%(time7.month,21)
+        time29="%s\%s"%(time7.month,22)
+        time30="%s\%s"%(time7.month,23)
+        time31="%s\%s"%(time7.month,24)
+        time32="%s\%s"%(time7.month,25)
+        time33="%s\%s"%(time7.month,26)
+        time34="%s\%s"%(time7.month,27)
+        time35="%s\%s"%(time7.month,28)
+        time36="%s\%s"%(time7.month,29)
+        time37="%s\%s"%(time7.month,30)
         list4=[]
         with open("Time",'r') as readfile:
             list4=readfile.read().rstrip('\n').split('\n')
         list5=[]
         with open("Time1",'r') as readfile1:
             list5=readfile1.read().rstrip('\n').split('\n')
-        list6=[]
-        with open("Time2",'r') as readfile2:
-            list6=readfile2.read().rstrip('\n').split('\n')
-        list7=[]
-        with open("Time3",'r') as readfile3:
-            list7=readfile3.read().rstrip('\n').split('\n')
-        n0=0 
-        names_1=zip_longest(list4,list6)             
-        time_1=zip_longest(list5,list7)    
-        for names00 in list4:
-            t1.setItem(n0,0,QTableWidgetItem(names00))
-            n0+=1
-        n0=0
-        for names000 in list5:
-            t1.setItem(n0,0,QTableWidgetItem(names000))
-            n0+=1
-        n0=0
-        for names0000 in list6:
-            t1.setItem(n0,1,QTableWidgetItem(names0000))
-            n0+=1
-        n0=0
-        for names00000 in list7:
-            t1.setItem(n0,1,QTableWidgetItem(names00000))
-            n0+=0
+        number_1=0
+        for users0000 in list4:
+            t1.setItem(number_1,0, QTableWidgetItem(users0000))
+            number_1+=1
+        number_1=1
+        time_4=datetime.now()
         t1.setItem(0,0, QTableWidgetItem("اسم الموظف"))
-        t1.setItem(0,1, QTableWidgetItem('الحضور'))
+        t1.setItem(0,1, QTableWidgetItem("%s\%s"%(time_4.month,1)))
+        t1.setItem(0,2, QTableWidgetItem("%s\%s"%(time_4.month,2)))
+        t1.setItem(0,3, QTableWidgetItem("%s\%s"%(time_4.month,3)))
+        t1.setItem(0,4, QTableWidgetItem("%s\%s"%(time_4.month,4)))
+        t1.setItem(0,5, QTableWidgetItem("%s\%s"%(time_4.month,5)))
+        t1.setItem(0,6, QTableWidgetItem("%s\%s"%(time_4.month,6)))
+        t1.setItem(0,7, QTableWidgetItem("%s\%s"%(time_4.month,7)))
+        t1.setItem(0,8, QTableWidgetItem("%s\%s"%(time_4.month,8)))
+        t1.setItem(0,9, QTableWidgetItem("%s\%s"%(time_4.month,9)))
+        t1.setItem(0,10, QTableWidgetItem("%s\%s"%(time_4.month,10)))
+        t1.setItem(0,11, QTableWidgetItem("%s\%s"%(time_4.month,11)))
+        t1.setItem(0,12, QTableWidgetItem("%s\%s"%(time_4.month,12)))
+        t1.setItem(0,13, QTableWidgetItem("%s\%s"%(time_4.month,13)))
+        t1.setItem(0,14, QTableWidgetItem("%s\%s"%(time_4.month,14)))
+        t1.setItem(0,15, QTableWidgetItem("%s\%s"%(time_4.month,15)))
+        t1.setItem(0,16, QTableWidgetItem("%s\%s"%(time_4.month,16)))
+        t1.setItem(0,17, QTableWidgetItem("%s\%s"%(time_4.month,17)))
+        t1.setItem(0,18, QTableWidgetItem("%s\%s"%(time_4.month,18)))
+        t1.setItem(0,19, QTableWidgetItem("%s\%s"%(time_4.month,19)))
+        t1.setItem(0,20, QTableWidgetItem("%s\%s"%(time_4.month,20)))
+        t1.setItem(0,21, QTableWidgetItem("%s\%s"%(time_4.month,21)))
+        t1.setItem(0,22, QTableWidgetItem("%s\%s"%(time_4.month,22)))
+        t1.setItem(0,23, QTableWidgetItem("%s\%s"%(time_4.month,23)))
+        t1.setItem(0,24, QTableWidgetItem("%s\%s"%(time_4.month,24)))
+        t1.setItem(0,25, QTableWidgetItem("%s\%s"%(time_4.month,25)))
+        t1.setItem(0,26, QTableWidgetItem("%s\%s"%(time_4.month,26)))
+        t1.setItem(0,27, QTableWidgetItem("%s\%s"%(time_4.month,27)))
+        t1.setItem(0,28, QTableWidgetItem("%s\%s"%(time_4.month,28)))
+        t1.setItem(0,29, QTableWidgetItem("%s\%s"%(time_4.month,29)))
+        t1.setItem(0,30, QTableWidgetItem("%s\%s"%(time_4.month,30)))
+        for time_5 in list5:
+            if time_5==time8:
+                t1.setItem(number_1,1, QTableWidgetItem('حاضر'))
+            elif time_5==time9:
+                t1.setItem(number_1,2, QTableWidgetItem('حاضر'))
+            elif time_5==time10:
+                t1.setItem(number_1,3, QTableWidgetItem('حاضر'))
+            elif time_5==time11:
+                t1.setItem(number_1,4, QTableWidgetItem('حاضر'))
+            elif time_5==time12:
+                t1.setItem(number_1,5, QTableWidgetItem('حاضر'))
+            elif time_5==time13:
+                t1.setItem(number_1,6, QTableWidgetItem('حاضر'))
+            elif time_5==time14:
+                t1.setItem(number_1,7, QTableWidgetItem('حاضر'))
+            elif time_5==time15:
+                t1.setItem(number_1,8, QTableWidgetItem('حاضر'))
+            elif time_5==time16:
+                t1.setItem(number_1,9, QTableWidgetItem('حاضر'))
+            elif time_5==time17:
+                t1.setItem(number_1,10, QTableWidgetItem('حاضر'))
+            elif time_5==time18:
+                t1.setItem(number_1,11, QTableWidgetItem('حاضر'))
+            elif time_5==time19:
+                t1.setItem(number_1,12, QTableWidgetItem('حاضر'))
+            elif time_5==time20:
+                t1.setItem(number_1,13, QTableWidgetItem('حاضر'))
+            elif time_5==time21:
+                t1.setItem(number_1,14, QTableWidgetItem('حاضر'))
+            elif time_5==time22:
+                t1.setItem(number_1,15, QTableWidgetItem('حاضر'))
+            elif time_5==time23:
+                t1.setItem(number_1,16, QTableWidgetItem('حاضر'))
+            elif time_5==time24:
+                t1.setItem(number_1,17, QTableWidgetItem('حاضر'))
+            elif time_5==time25:
+                t1.setItem(number_1,18, QTableWidgetItem('حاضر'))
+            elif time_5==time26:
+                t1.setItem(number_1,19, QTableWidgetItem('حاضر'))
+            elif time_5==time27:
+                t1.setItem(number_1,20, QTableWidgetItem('حاضر'))
+            elif time_5==time28:
+                t1.setItem(number_1,21, QTableWidgetItem('حاضر'))
+            elif time_5==time29:
+                t1.setItem(number_1,22, QTableWidgetItem('حاضر'))
+            elif time_5==time30:
+                t1.setItem(number_1,23, QTableWidgetItem('حاضر'))
+            elif time_5==time31:
+                t1.setItem(number_1,24, QTableWidgetItem('حاضر'))
+            elif time_5==time32:
+                t1.setItem(number_1,25, QTableWidgetItem('حاضر'))
+            elif time_5==time33:
+                t1.setItem(number_1,26, QTableWidgetItem('حاضر'))
+            elif time_5==time34:
+                t1.setItem(number_1,27, QTableWidgetItem('حاضر'))
+            elif time_5==time35:
+                t1.setItem(number_1,28, QTableWidgetItem('حاضر'))
+            elif time_5==time36:
+                t1.setItem(number_1,29, QTableWidgetItem('حاضر'))
+            elif time_5==time37:
+                t1.setItem(number_1,30, QTableWidgetItem('حاضر'))
+            ####################################################################################
+            elif time_5==time8+' ':
+                t1.setItem(number_1,1, QTableWidgetItem('غائب'))
+            elif time_5==time9+' ':
+                t1.setItem(number_1,2, QTableWidgetItem('غائب'))
+            elif time_5==time10+' ':
+                t1.setItem(number_1,3, QTableWidgetItem('غائب'))
+            elif time_5==time11+' ':
+                t1.setItem(number_1,4, QTableWidgetItem('غائب'))
+            elif time_5==time12+' ':
+                t1.setItem(number_1,5, QTableWidgetItem('غائب'))
+            elif time_5==time13+' ':
+                t1.setItem(number_1,6, QTableWidgetItem('غائب'))
+            elif time_5==time14+' ':
+                t1.setItem(number_1,7, QTableWidgetItem('غائب'))
+            elif time_5==time15+' ':
+                t1.setItem(number_1,8, QTableWidgetItem('غائب'))
+            elif time_5==time16+' ':
+                t1.setItem(number_1,9, QTableWidgetItem('غائب'))
+            elif time_5==time17+' ':
+                t1.setItem(number_1,10, QTableWidgetItem('غائب'))
+            elif time_5==time18+' ':
+                t1.setItem(number_1,11, QTableWidgetItem('غائب'))
+            elif time_5==time19+' ':
+                t1.setItem(number_1,12, QTableWidgetItem('غائب'))
+            elif time_5==time20+' ':
+                t1.setItem(number_1,13, QTableWidgetItem('غائب'))
+            elif time_5==time21+' ':
+                t1.setItem(number_1,14, QTableWidgetItem('غائب'))
+            elif time_5==time22+' ':
+                t1.setItem(number_1,15, QTableWidgetItem('غائب'))
+            elif time_5==time23+' ':
+                t1.setItem(number_1,16, QTableWidgetItem('غائب'))
+            elif time_5==time24+' ':
+                t1.setItem(number_1,17, QTableWidgetItem('غائب'))
+            elif time_5==time25+' ':
+                t1.setItem(number_1,18, QTableWidgetItem('غائب'))
+            elif time_5==time26+' ':
+                t1.setItem(number_1,19, QTableWidgetItem('غائب'))
+            elif time_5==time27+' ':
+                t1.setItem(number_1,20, QTableWidgetItem('غائب'))
+            elif time_5==time28+' ':
+                t1.setItem(number_1,21, QTableWidgetItem('غائب'))
+            elif time_5==time29+' ':
+                t1.setItem(number_1,22, QTableWidgetItem('غائب'))
+            elif time_5==time30+' ':
+                t1.setItem(number_1,23, QTableWidgetItem('غائب'))
+            elif time_5==time31+' ':
+                t1.setItem(number_1,24, QTableWidgetItem('غائب'))
+            elif time_5==time32+' ':
+                t1.setItem(number_1,25, QTableWidgetItem('غائب'))
+            elif time_5==time33+' ':
+                t1.setItem(number_1,26, QTableWidgetItem('غائب'))
+            elif time_5==time34+' ':
+                t1.setItem(number_1,27, QTableWidgetItem('غائب'))
+            elif time_5==time35+' ':
+                t1.setItem(number_1,28, QTableWidgetItem('غائب'))
+            elif time_5==time36+' ':
+                t1.setItem(number_1,29, QTableWidgetItem('غائب'))
+            elif time_5==time37+' ':
+                t1.setItem(number_1,30, QTableWidgetItem('غائب'))
         b000=QtWidgets.QPushButton('رجوع',program)
         b000.setStyleSheet(hr_design.buttons2)
         b000.move(50,650)
@@ -299,7 +463,7 @@ def program2():
         b000.show()
     with open('username','r') as f6:
         list2=f6.read().rstrip('\n').split('\n')
-    if name==list2[0] and password==list2[1] or name=='' and password=='' :
+    if name==list2[0] and password==list2[1]:
         l1.hide()
         e1.hide()
         e2.hide()
