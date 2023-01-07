@@ -3,13 +3,73 @@ import sys
 import hr_design
 from PyQt5.QtGui import QPixmap,QIcon
 from PyQt5.QtWidgets import QTableWidgetItem
+from PyQt5.QtCore import QTimer
 from itertools import zip_longest
 from datetime import *
 import webbrowser
 from itertools import zip_longest
 from Loding_window import Ui_mainWindow
+from bs4 import BeautifulSoup
+import requests
+from files import window
 
 
+
+def web2():
+    try:
+        list20=[]
+        r1=requests.get('https://Hrapp.m0221.repl.co')
+        s1=r1.content
+        s2=BeautifulSoup(s1,"lxml")
+        x1=s2.find_all('h1',{"class":"p"})
+        for i in range(len(x1)):
+            list20.append(x1[i].text)
+
+        if list20[0]=='0':
+            m20=QtWidgets.QMessageBox.warning(program,'Hr app','هناك تحديث للتطبيق')
+        else:
+            pass
+    except:
+        m21=QtWidgets.QMessageBox.warning(program,'Hr app','حدث خطأ')
+
+
+
+def reports():
+    window.show()
+
+
+def t20():
+    c2=c1.currentText()
+    time_now=datetime.now()
+    time_now2=time_now.strftime("%H:%M:%S %p")
+    l20.setText("الوقت : "+time_now2)
+    if c2=='العربية':
+        l4.setText("الصفحة الرئيسية")
+        b3.setText("موظف جديد")
+        b4.setText("تسجيل حضور")
+        b5.setText("تسجيل غياب")
+        b6.setText("قائمة الموظفين")
+        b7.setText("المرتبات")
+        b8.setText("مساعدة")
+        b9.setText("تغيير الاسم")
+        b10.setText("تغيير كلمة المرور")
+        b20.setText("التقارير")
+        b2.setText("خروج")
+        b5.resize(200,50)
+    else:
+        l4.setText("home page")
+        b3.setText("new user")
+        b4.setText("Record Absence")
+        b5.setText("Attendance Registration")
+        b5.resize(230,50)
+        b5.setIconSize(QtCore.QSize(30,30))
+        b6.setText("list of users")
+        b7.setText("salaries")
+        b8.setText("help")
+        b9.setText("Name change")
+        b10.setText("Change Password")
+        b20.setText("reports")
+        b2.setText("exit")
 
 def users11():
     def users5():
@@ -19,7 +79,7 @@ def users11():
             save_time1.write(users10.text()+'\n')
             save_time1.close()
         with open("Time1","a") as save_time10:
-            save_time10.write("%s\%s \n"%(Time2.month,Time2.day))
+            save_time10.write("%s %s\%s \n"%(users10.text(),Time2.month,Time2.day))
             save_time10.close()
         m11=QtWidgets.QMessageBox.about(d6,'Hr app','تم تسجيل غياب بنجاح ل '+users10.text())
     d6=QtWidgets.QDialog(program)
@@ -50,7 +110,7 @@ def users1():
             save_time.write(users0.text()+'\n')
             save_time.close()
         with open("Time1","a") as save_time00:
-            save_time00.write("%s\%s\n"%(Time1.month,Time1.day))
+            save_time00.write("%s %s\%s\n"%(users0,Time1.month,Time1.day))
             save_time00.close()
         m10=QtWidgets.QMessageBox.about(d5,'Hr app','تم تسجيل حضور بنجاح ل '+users0.text())
     d5=QtWidgets.QDialog(program)
@@ -297,6 +357,128 @@ def program2():
             list5=readfile1.read().rstrip('\n').split('\n')
         number_1=0
         for users0000 in list4:
+            for time_5 in list5:
+                if time_5==users0000+' '+time8:
+                    t1.setItem(number_1,1, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time9:
+                    t1.setItem(number_1,2, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time10:
+                    t1.setItem(number_1,3, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time11:
+                    t1.setItem(number_1,4, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time12:
+                    t1.setItem(number_1,5, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time13:
+                    t1.setItem(number_1,6, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time14:
+                    t1.setItem(number_1,7, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time15:
+                    t1.setItem(number_1,8, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time16:
+                    t1.setItem(number_1,9, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time17:
+                    t1.setItem(number_1,10, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time18:
+                    t1.setItem(number_1,11, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time19:
+                    t1.setItem(number_1,12, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time20:
+                    t1.setItem(number_1,13, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time21:
+                    t1.setItem(number_1,14, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time22:
+                    t1.setItem(number_1,15, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time23:
+                    t1.setItem(number_1,16, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time24:
+                    t1.setItem(number_1,17, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time25:
+                    t1.setItem(number_1,18, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time26:
+                    t1.setItem(number_1,19, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time27:
+                    t1.setItem(number_1,20, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time28:
+                    t1.setItem(number_1,21, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time29:
+                    t1.setItem(number_1,22, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time30:
+                    t1.setItem(number_1,23, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time31:
+                    t1.setItem(number_1,24, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time32:
+                    t1.setItem(number_1,25, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time33:
+                    t1.setItem(number_1,26, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time34:
+                    t1.setItem(number_1,27, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time35:
+                    t1.setItem(number_1,28, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time36:
+                    t1.setItem(number_1,29, QTableWidgetItem('حاضر'))
+                elif time_5==users0000+' '+time37:
+                    t1.setItem(number_1,30, QTableWidgetItem('حاضر'))
+            ####################################################################################
+                elif time_5==users0000+' '+time8+' ':
+                    t1.setItem(number_1,1, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time9+' ':
+                    t1.setItem(number_1,2, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time10+' ':
+                    t1.setItem(number_1,3, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time11+' ':
+                    t1.setItem(number_1,4, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time12+' ':
+                    t1.setItem(number_1,5, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time13+' ':
+                    t1.setItem(number_1,6, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time14+' ':
+                    t1.setItem(number_1,7, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time15+' ':
+                    t1.setItem(number_1,8, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time16+' ':
+                    t1.setItem(number_1,9, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time17+' ':
+                    t1.setItem(number_1,10, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time18+' ':
+                    t1.setItem(number_1,11, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time19+' ':
+                    t1.setItem(number_1,12, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time20+' ':
+                    t1.setItem(number_1,13, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time21+' ':
+                    t1.setItem(number_1,14, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time22+' ':
+                    t1.setItem(number_1,15, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time23+' ':
+                    t1.setItem(number_1,16, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time24+' ':
+                    t1.setItem(number_1,17, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time25+' ':
+                    t1.setItem(number_1,18, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time26+' ':
+                    t1.setItem(number_1,19, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time27+' ':
+                    t1.setItem(number_1,20, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time28+' ':
+                    t1.setItem(number_1,21, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time29+' ':
+                    t1.setItem(number_1,22, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time30+' ':
+                    t1.setItem(number_1,23, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time31+' ':
+                    t1.setItem(number_1,24, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time32+' ':
+                    t1.setItem(number_1,25, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time33+' ':
+                    t1.setItem(number_1,26, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time34+' ':
+                    t1.setItem(number_1,27, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time35+' ':
+                    t1.setItem(number_1,28, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time36+' ':
+                    t1.setItem(number_1,29, QTableWidgetItem('غائب'))
+                elif time_5==users0000+' '+time37+' ':
+                    t1.setItem(number_1,30, QTableWidgetItem('غائب'))
             t1.setItem(number_1,0, QTableWidgetItem(users0000))
             number_1+=1
         number_1=1
@@ -332,128 +514,6 @@ def program2():
         t1.setItem(0,28, QTableWidgetItem("%s\%s"%(time_4.month,28)))
         t1.setItem(0,29, QTableWidgetItem("%s\%s"%(time_4.month,29)))
         t1.setItem(0,30, QTableWidgetItem("%s\%s"%(time_4.month,30)))
-        for time_5 in list5:
-            if time_5==time8:
-                t1.setItem(number_1,1, QTableWidgetItem('حاضر'))
-            elif time_5==time9:
-                t1.setItem(number_1,2, QTableWidgetItem('حاضر'))
-            elif time_5==time10:
-                t1.setItem(number_1,3, QTableWidgetItem('حاضر'))
-            elif time_5==time11:
-                t1.setItem(number_1,4, QTableWidgetItem('حاضر'))
-            elif time_5==time12:
-                t1.setItem(number_1,5, QTableWidgetItem('حاضر'))
-            elif time_5==time13:
-                t1.setItem(number_1,6, QTableWidgetItem('حاضر'))
-            elif time_5==time14:
-                t1.setItem(number_1,7, QTableWidgetItem('حاضر'))
-            elif time_5==time15:
-                t1.setItem(number_1,8, QTableWidgetItem('حاضر'))
-            elif time_5==time16:
-                t1.setItem(number_1,9, QTableWidgetItem('حاضر'))
-            elif time_5==time17:
-                t1.setItem(number_1,10, QTableWidgetItem('حاضر'))
-            elif time_5==time18:
-                t1.setItem(number_1,11, QTableWidgetItem('حاضر'))
-            elif time_5==time19:
-                t1.setItem(number_1,12, QTableWidgetItem('حاضر'))
-            elif time_5==time20:
-                t1.setItem(number_1,13, QTableWidgetItem('حاضر'))
-            elif time_5==time21:
-                t1.setItem(number_1,14, QTableWidgetItem('حاضر'))
-            elif time_5==time22:
-                t1.setItem(number_1,15, QTableWidgetItem('حاضر'))
-            elif time_5==time23:
-                t1.setItem(number_1,16, QTableWidgetItem('حاضر'))
-            elif time_5==time24:
-                t1.setItem(number_1,17, QTableWidgetItem('حاضر'))
-            elif time_5==time25:
-                t1.setItem(number_1,18, QTableWidgetItem('حاضر'))
-            elif time_5==time26:
-                t1.setItem(number_1,19, QTableWidgetItem('حاضر'))
-            elif time_5==time27:
-                t1.setItem(number_1,20, QTableWidgetItem('حاضر'))
-            elif time_5==time28:
-                t1.setItem(number_1,21, QTableWidgetItem('حاضر'))
-            elif time_5==time29:
-                t1.setItem(number_1,22, QTableWidgetItem('حاضر'))
-            elif time_5==time30:
-                t1.setItem(number_1,23, QTableWidgetItem('حاضر'))
-            elif time_5==time31:
-                t1.setItem(number_1,24, QTableWidgetItem('حاضر'))
-            elif time_5==time32:
-                t1.setItem(number_1,25, QTableWidgetItem('حاضر'))
-            elif time_5==time33:
-                t1.setItem(number_1,26, QTableWidgetItem('حاضر'))
-            elif time_5==time34:
-                t1.setItem(number_1,27, QTableWidgetItem('حاضر'))
-            elif time_5==time35:
-                t1.setItem(number_1,28, QTableWidgetItem('حاضر'))
-            elif time_5==time36:
-                t1.setItem(number_1,29, QTableWidgetItem('حاضر'))
-            elif time_5==time37:
-                t1.setItem(number_1,30, QTableWidgetItem('حاضر'))
-            ####################################################################################
-            elif time_5==time8+' ':
-                t1.setItem(number_1,1, QTableWidgetItem('غائب'))
-            elif time_5==time9+' ':
-                t1.setItem(number_1,2, QTableWidgetItem('غائب'))
-            elif time_5==time10+' ':
-                t1.setItem(number_1,3, QTableWidgetItem('غائب'))
-            elif time_5==time11+' ':
-                t1.setItem(number_1,4, QTableWidgetItem('غائب'))
-            elif time_5==time12+' ':
-                t1.setItem(number_1,5, QTableWidgetItem('غائب'))
-            elif time_5==time13+' ':
-                t1.setItem(number_1,6, QTableWidgetItem('غائب'))
-            elif time_5==time14+' ':
-                t1.setItem(number_1,7, QTableWidgetItem('غائب'))
-            elif time_5==time15+' ':
-                t1.setItem(number_1,8, QTableWidgetItem('غائب'))
-            elif time_5==time16+' ':
-                t1.setItem(number_1,9, QTableWidgetItem('غائب'))
-            elif time_5==time17+' ':
-                t1.setItem(number_1,10, QTableWidgetItem('غائب'))
-            elif time_5==time18+' ':
-                t1.setItem(number_1,11, QTableWidgetItem('غائب'))
-            elif time_5==time19+' ':
-                t1.setItem(number_1,12, QTableWidgetItem('غائب'))
-            elif time_5==time20+' ':
-                t1.setItem(number_1,13, QTableWidgetItem('غائب'))
-            elif time_5==time21+' ':
-                t1.setItem(number_1,14, QTableWidgetItem('غائب'))
-            elif time_5==time22+' ':
-                t1.setItem(number_1,15, QTableWidgetItem('غائب'))
-            elif time_5==time23+' ':
-                t1.setItem(number_1,16, QTableWidgetItem('غائب'))
-            elif time_5==time24+' ':
-                t1.setItem(number_1,17, QTableWidgetItem('غائب'))
-            elif time_5==time25+' ':
-                t1.setItem(number_1,18, QTableWidgetItem('غائب'))
-            elif time_5==time26+' ':
-                t1.setItem(number_1,19, QTableWidgetItem('غائب'))
-            elif time_5==time27+' ':
-                t1.setItem(number_1,20, QTableWidgetItem('غائب'))
-            elif time_5==time28+' ':
-                t1.setItem(number_1,21, QTableWidgetItem('غائب'))
-            elif time_5==time29+' ':
-                t1.setItem(number_1,22, QTableWidgetItem('غائب'))
-            elif time_5==time30+' ':
-                t1.setItem(number_1,23, QTableWidgetItem('غائب'))
-            elif time_5==time31+' ':
-                t1.setItem(number_1,24, QTableWidgetItem('غائب'))
-            elif time_5==time32+' ':
-                t1.setItem(number_1,25, QTableWidgetItem('غائب'))
-            elif time_5==time33+' ':
-                t1.setItem(number_1,26, QTableWidgetItem('غائب'))
-            elif time_5==time34+' ':
-                t1.setItem(number_1,27, QTableWidgetItem('غائب'))
-            elif time_5==time35+' ':
-                t1.setItem(number_1,28, QTableWidgetItem('غائب'))
-            elif time_5==time36+' ':
-                t1.setItem(number_1,29, QTableWidgetItem('غائب'))
-            elif time_5==time37+' ':
-                t1.setItem(number_1,30, QTableWidgetItem('غائب'))
         b000=QtWidgets.QPushButton('رجوع',program)
         b000.setStyleSheet(hr_design.buttons2)
         b000.move(50,650)
@@ -461,6 +521,10 @@ def program2():
         b000.setIconSize(QtCore.QSize(50,50))
         b000.clicked.connect(screen)
         b000.show()
+        if c1.currentText()=="English":
+            b000.setText("back")
+        else:
+            pass
     with open('username','r') as f6:
         list2=f6.read().rstrip('\n').split('\n')
     if name==list2[0] and password==list2[1]:
@@ -475,6 +539,7 @@ def program2():
         l3.resize(1399,100)
         l3.setStyleSheet(hr_design.ll)
         l3.show()
+        global l4
         l4=QtWidgets.QLabel('الصفحة الرئيسية',program)
         l4.move(550,1)
         l4.resize(250,100)
@@ -483,11 +548,13 @@ def program2():
         list3=[]
         with open('username','r') as f7:
             list3=f7.read().rstrip('\n').split('\n')
+        global l5
         l5=QtWidgets.QLabel('اسم المستخدم :'+list3[0],program)
         l5.move(670,150)
         l5.resize(500,100)
         l5.setStyleSheet(hr_design.lll)
         l5.show()
+        global b3
         b3=QtWidgets.QPushButton('موظف جديد',program)
         b3.setStyleSheet(hr_design.buttons2)
         b3.move(100,350)
@@ -496,6 +563,7 @@ def program2():
         b3.setIconSize(QtCore.QSize(50,50))
         b3.clicked.connect(save)
         b3.show()
+        global b4
         b4=QtWidgets.QPushButton('تسجيل غياب',program)
         b4.setStyleSheet(hr_design.buttons2)
         b4.move(100,450)
@@ -504,6 +572,7 @@ def program2():
         b4.setIconSize(QtCore.QSize(50,50))
         b4.clicked.connect(users11)
         b4.show()
+        global b5
         b5=QtWidgets.QPushButton('تسجيل حضور',program)
         b5.setStyleSheet(hr_design.buttons2)
         b5.move(600,450)
@@ -512,6 +581,7 @@ def program2():
         b5.setIconSize(QtCore.QSize(40,40))
         b5.clicked.connect(users1)
         b5.show()
+        global b6
         b6=QtWidgets.QPushButton('قائمه الموظفين',program)
         b6.setStyleSheet(hr_design.buttons2)
         b6.move(350,350)
@@ -520,6 +590,7 @@ def program2():
         b6.setIconSize(QtCore.QSize(40,40))
         b6.clicked.connect(s1)
         b6.show()
+        global b7
         b7=QtWidgets.QPushButton('المرتبات',program)
         b7.setStyleSheet(hr_design.buttons2)
         b7.move(350,450)
@@ -528,6 +599,7 @@ def program2():
         b7.setIconSize(QtCore.QSize(50,50))
         b7.clicked.connect(Money)
         b7.show()
+        global b8
         b8=QtWidgets.QPushButton('مساعده',program)
         b8.setStyleSheet(hr_design.buttons2)
         b8.move(600,350)
@@ -536,6 +608,7 @@ def program2():
         b8.setIcon(QIcon('icons\\help.png'))
         b8.setIconSize(QtCore.QSize(40,40))
         b8.show()
+        global b9
         b9=QtWidgets.QPushButton('تغيير الاسم',program)
         b9.setStyleSheet(hr_design.buttons2)
         b9.move(850,350)
@@ -544,6 +617,7 @@ def program2():
         b9.setIcon(QIcon('icons\\name.png'))
         b9.setIconSize(QtCore.QSize(40,40))
         b9.show()
+        global b10
         b10=QtWidgets.QPushButton('تغيير كلمه المرور',program)
         b10.setStyleSheet(hr_design.buttons2)
         b10.move(850,450)
@@ -552,6 +626,36 @@ def program2():
         b10.setIconSize(QtCore.QSize(40,40))
         b10.resize(200,50)
         b10.show()
+        global b20
+        b20=QtWidgets.QPushButton('التقارير',program)
+        b20.setStyleSheet(hr_design.buttons2)
+        b20.move(1100,450)
+        b20.clicked.connect(reports)
+        b20.setIcon(QIcon('icons\\report.png'))
+        b20.setIconSize(QtCore.QSize(40,40))
+        b20.resize(200,50)
+        b20.show()
+        global timer
+        timer=QTimer()
+        timer.timeout.connect(t20)
+        timer.start(1000)
+        global l20
+        l20=QtWidgets.QLabel(program)
+        l20.move(900,610)
+        l20.resize(270,100)
+        l20.setStyleSheet(hr_design.lll)
+        l20.show()
+        global c1
+        c1=QtWidgets.QComboBox(program)
+        c1.move(600,190)
+        c1.addItem('العربية')
+        c1.addItem('English')
+        c1.setItemIcon(0,QIcon("icons\\egypt.png"))
+        c1.setItemIcon(1,QIcon("icons\\usa.png"))
+        c1.setStyleSheet(hr_design.c)
+        c1.resize(200,50)
+        c1.setIconSize(QtCore.QSize(50,50))
+        c1.show()
     else:
         l2.setText('حاول مره اخري')
 app=QtWidgets.QApplication(sys.argv)
@@ -596,5 +700,6 @@ b2.move(1260,650)
 b2.setStyleSheet(hr_design.buttons1)
 b2.setToolTip('الخروج من البرنامج')
 b2.clicked.connect(x)
+web2()
 program.showMaximized()
 app.exec_()

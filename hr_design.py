@@ -131,6 +131,12 @@ lll='''
     font-size:30px;
 }
 '''
+llll='''
+.QLabel{
+    background-color:#b8e000;
+    font-size:30px;
+}
+'''
 i='''
 .QLabel{
     border-radius:10px;
@@ -160,5 +166,12 @@ d00='''
 .QDialog{
     background-color:#5bfa2e; 
     background:#5bfa2e; 
+}
+'''
+c='''
+.QComboBox{
+    background-color:#008080; 
+    font-size:25px;
+    border-radius:29px;
 }
 '''

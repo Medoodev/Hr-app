@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>window</class>
+ <widget class="QMainWindow" name="window">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>457</width>
+    <height>210</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Hr app [files]</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>50</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">.QComboBox{
+	background-color:rgb(46, 255, 0);
+	border-radius:10px;
+	font-size:20px;
+}
+.QComboBox:hover{
+	background-color:rgb(28, 154, 0);
+	border-radius:10px;
+	font-size:20px;
+}</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>pdf</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>icons/pdf.ico</normaloff>icons/pdf.ico</iconset>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>excel</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>icons/excel.png</normaloff>icons/excel.png</iconset>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>50</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">.QPushButton{
+	background-color:rgb(58, 252, 255);
+	border-radius:10px;
+	font-size:20px;
+}
+.QPushButton:hover{
+	background-color:rgb(36, 158, 158);
+	border-radius:10px;
+	font-size:20px;
+}</string>
+    </property>
+    <property name="text">
+     <string>عرض التقرير</string>
+    </property>
+   </widget>
+   <widget class="QDateEdit" name="dateEdit">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>110</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">.QDateEdit{
+	background-color:rgb(58, 255, 28);
+	border-radius:30px;
+	font-size:20px;
+}
+.QDateEdit:hover{
+	background-color:rgb(41, 181, 19);
+	border-radius:30px;
+	font-size:20px;
+}</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>457</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>ملف</string>
+    </property>
+    <addaction name="action"/>
+    <addaction name="separator"/>
+    <addaction name="action_3"/>
+   </widget>
+   <addaction name="menu"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action">
+   <property name="text">
+    <string>فتح ملف</string>
+   </property>
+  </action>
+  <action name="action_3">
+   <property name="text">
+    <string>خروج</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
