@@ -286,6 +286,8 @@ def program2():
     password=e2.text()
     list2=[]
     def Money():
+        l20.hide()
+        c1.hide()
         def screen():
             t1.hide()
             b000.hide()
@@ -300,6 +302,9 @@ def program2():
             b8.show()
             b9.show()
             b10.show()
+            l20.show()
+            c1.show()
+            b20.hide()
         l3.hide()
         l4.hide()
         l5.hide()
