@@ -631,15 +631,6 @@ def program2():
         b10.setIconSize(QtCore.QSize(40,40))
         b10.resize(200,50)
         b10.show()
-        global b20
-        b20=QtWidgets.QPushButton('التقارير',program)
-        b20.setStyleSheet(hr_design.buttons2)
-        b20.move(1100,450)
-        b20.clicked.connect(reports)
-        b20.setIcon(QIcon('icons\\report.png'))
-        b20.setIconSize(QtCore.QSize(40,40))
-        b20.resize(200,50)
-        b20.show()
         global timer
         timer=QTimer()
         timer.timeout.connect(t20)
